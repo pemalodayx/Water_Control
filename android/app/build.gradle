@@ -179,6 +179,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-vector-icons')
     implementation project(':react-native-svg')
    implementation 'com.facebook.fresco:animated-gif:2.1.0'
 

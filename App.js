@@ -24,10 +24,10 @@ import NotificationPage from './src/pages/NotificationPage';
 import LoginPages from './src/pages/LoginPages';
 import HomePages from './src/pages/HomePages';
 import SignUp from './src/pages/SignUp';
-import SettingPages from './src/pages/SettingPages';
+import Hydrography from './src/pages/Hydrography';
 import ControlPannel from './src/pages/ControlPannel';
-import WaterLevel from './src/pages/WaterLevel';
 import Toggle from './src/pages/Toggle';
+import Pressure from './src/pages/Pressure';
 const AppStack = createStackNavigator({
   Login:{screen:LoginPages},
   Home:{screen:HomePages},  
@@ -35,13 +35,11 @@ const AppStack = createStackNavigator({
 
 });
 const AppDrawer = createDrawerNavigator({
-  
   Home:{screen:HomePages},  
   notification:{screen:NotificationPage},
-  Setting:{screen:SettingPages},
+  Hydrograph:{screen:Hydrography},
   ControlPannel:{screen:ControlPannel},
-  WaterLevel:{screen:WaterLevel},
-  OnOffSwitch:{screen:Toggle},
+  Pressure:{screen:Pressure},
   drawer:AppStack
 
 

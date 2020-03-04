@@ -6,52 +6,57 @@ import {
     TouchableOpacity,
     TextInput,
     Image,
-    ImageBackground
+    ImageBackground,ScrollView
 } from "react-native"; 
 
 export default class LoginPages extends React.Component {
     static navigationOptions = {
-      header: null,
-    };
+        title:'Login',
+        headerStyle:{
+            backgroundColor:'#0d7ba1',
+            height:50
+        }
+      };
     render() {
         return (
             <ImageBackground source={require('../Images/BackIamge.jpg')} style={{width: '100%', height: '100%'}}>
-                
-                <View style={styles.container}>
-                    <View style={styles.Logo}>
-                    <Image
-                         style={{width: 100, height: 150}}
-                         source={require('../Images/logo.png')}
-                        />
-                        <Text style={styles.LogoText}>Water Usage Control Using IoT</Text>
-                    </View>
-                    <View style={styles.Opicity}>
-                        <TextInput style={styles.inputBox} 
-                            underlineColorAndroid='rgba(0,0,0,0)' 
-                            placeholder="Email"
-                            returnKeyType="next"
-                            autoCapitalize='none'
-                            autoCorrect={false}
-                            onSubmitEditing={()=>this.passwordInput.focus()}
-                            placeholderTextColor='#000000'/>
-                        <TextInput style={styles.inputBox} 
-                            underlineColorAndroid='rgba(0,0,0,0)' 
-                            placeholder="Password"
-                            returnKeyType="go"
-                            ref={(input)=>this.passwordInput=input}
-                            secureTextEntry={true}
-                            placeholderTextColor='#000000'/>
-                        <TouchableOpacity style={styles.button} onPress={()=>this.props.navigation.navigate('Home')}>
-                            <Text style={styles.buttonText}>Login</Text>
-                        </TouchableOpacity>
-                        <View style={styles.signupTextCon}>
-                                <Text style={styles.accont}>Need new account?                </Text>
-                                <TouchableOpacity style={styles.SignUpButton} onPress={()=>this.props.navigation.navigate('SignUp')}>
-                                    <Text style={styles.buttonText}>Sign Up</Text>
-                              </TouchableOpacity>
-                         </View>
-                    </View>
-                </View>
+               <ScrollView style={styles.scrollview}>
+                    <View style={styles.container}>
+                        <View style={styles.Logo}>
+                            <Image
+                                style={{width: 100, height: 150}}
+                                source={require('../Images/logo.png')}
+                                />
+                            <Text style={styles.LogoText}>Water Usage Control Using IoT</Text>
+                        </View>
+                        <View style={styles.Opicity}>
+                            <TextInput style={styles.inputBox} 
+                                underlineColorAndroid='rgba(0,0,0,0)' 
+                                placeholder="Email"
+                                returnKeyType="next"
+                                autoCapitalize='none'
+                                autoCorrect={false}
+                                onSubmitEditing={()=>this.passwordInput.focus()}
+                                placeholderTextColor='#000000'/>
+                            <TextInput style={styles.inputBox} 
+                                underlineColorAndroid='rgba(0,0,0,0)' 
+                                placeholder="Password"
+                                returnKeyType="go"
+                                ref={(input)=>this.passwordInput=input}
+                                secureTextEntry={true}
+                                placeholderTextColor='#000000'/>
+                            <TouchableOpacity style={styles.button} onPress={()=>this.props.navigation.navigate('Home')}>
+                                <Text style={styles.buttonText}>Login</Text>
+                            </TouchableOpacity>
+                            <View style={styles.signupTextCon}>
+                                    <Text style={styles.accont}>Need new account?                </Text>
+                                    <TouchableOpacity style={styles.SignUpButton} onPress={()=>this.props.navigation.navigate('SignUp')}>
+                                        <Text style={styles.buttonText}>Sign Up</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                     </View>
+                     </ScrollView>  
             </ImageBackground>   
         );
       }

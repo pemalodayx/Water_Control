@@ -1,82 +1,86 @@
 
 import React from 'react';
-import { SafeAreaView, StyleSheet, TextInput, Text,View } from 'react-native';
-import RNSpeedometer from 'react-native-speedometer';
 
-
-
-
-
-
+import { Switch,ScrollView, Text, View, StyleSheet} from 'react-native';
+import WaterLevel from '../Switch/WaterLevel';
+import Solenoid1 from '../Switch/Solenoid1';
+import Solenoid2 from '../Switch/Solenoid2';
+import Solenoid3 from '../Switch/Solenoid3';
+import Solenoid4 from '../Switch/Solenoid4';
+ 
 export default class ControlPannel extends React.Component {
-  
-  state = { value: 0 };
-  //Initial value for Speedometer
-  onChange = value => this.setState({ value: parseInt(value) });
-  //setting the value for Speedometer
-  
+  static navigationOptions = {
+    title:'Control Pannel',
+    headerStyle:{
+        backgroundColor:'#0d7ba1',
+        height:50
+    }
+  };
+
   render() {
     return (
-      
-      
-    
-      <View style={styles.container}>
-         
-          <SafeAreaView>
+      <View style={styles.container}>{}
+        <Text  style={{marginLeft:'35%',
+                marginTop:20,
+                fontWeight: "bold",
+                fontSize: 18,
+                color: 'white'}}>Control Pannel</Text>
+          <View  style={{
+                borderBottomColor: 'black',
+                borderBottomWidth:1,
+                width:'100%',
+                height:10
+                }}
+            />  
           
-            <RNSpeedometer
-              value={this.state.value}
-              size={300}
-              //Size of Speedometer
-              minValue={0}
-              //Min value for Speedometer
-              maxValue={200}
-              //Max value for Speedometer
-              allowedDecimals={0}
-              //Decimals value allowed or not
-              labels={[
-                {
-                  name: 'Low Risk',
-                 
-                },
-                
-              ]}
-            />
-           
-            <View style={{ marginTop: 70, padding: 20 }}>
-              <Text style={{ fontSize: 20 }}>
-                Water Speed
-              </Text>
-            
-              <TextInput
-                placeholder="Enter Speedometer Value"
-                style={styles.textInput}
-                onChangeText={this.onChange}
-              />
-             
-            </View>
-          </SafeAreaView>
+        <ScrollView>
         
+          <View>
+              <WaterLevel/>
+          </View>
+          <View style={{
+              borderBottomColor: 'white',
+              borderBottomWidth:3,
+            }}
+          />
+          <View>
+              <Solenoid1/>
+          </View>
+          <View style={{
+            borderBottomColor: 'white',
+            borderBottomWidth:3
+          }}/>
+          <View>
+            <Solenoid2/>
+          </View>
+          <View style={{
+            borderBottomColor: 'white',
+            borderBottomWidth:3,
+          }}/>
+        <View>
+          <Solenoid3/>
+        </View>
+        <View style={{
+            borderBottomColor: 'white',
+            borderBottomWidth:3,
+          }}
+        />
+        <View>
+            <Solenoid4/>
+        </View>
+        <View style={{
+            borderBottomColor: 'white',
+            borderBottomWidth:3,
+          }}
+        />
+          </ScrollView>
       </View>
-     
-    );
-  }
+    );  
+  } 
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'#184c7d'
-  },
-  textInput: {
-      width:300,
-      fontSize:16,
-      backgroundColor:'rgba(255,255,255,4)',
-      borderRadius:2,
-      paddingHorizontal:16,
-      marginVertical:5
-  },
-  Speedmeter:{
-      
+    backgroundColor:'#0d7ba1',
   },
 });
